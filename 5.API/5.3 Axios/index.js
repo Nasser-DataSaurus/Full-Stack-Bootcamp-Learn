@@ -34,7 +34,9 @@ app.post("/", async (req, res) => {
   const participants = req.body.participants;
   console.log(type, participants);
     try {
-    const response = await axios.get(`https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`);
+    const response = await axios.get(
+      `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
+    );
     const randomIndex = Math.floor(Math.random() * response.data.length);
     const result = response.data[randomIndex];
     console.log(result);
